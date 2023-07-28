@@ -1,6 +1,6 @@
 ---
 title: "Covid91 vaccine study Final2023"
-author: "Put your name here!"
+author: "Diana flores !"
 output: 
   html_document:
     number_sections: true
@@ -24,17 +24,142 @@ mutate(across(where(is.character), as.factor))
 
 A new  preventative vaccine (covid921) is under test in clinical trials. Given the nature of this vaccine it is suspected that the drug may exhibit different effectiveness across the variety of subpopulations tracked. Consider population subgroups by gender( guys and gals), drug use, and sexual orientation. Write a complete report that separately considers this drug for each subgroup and your recommendations as to whether people in the subgroup should take the vaccine. Structure your report in four sections each devoted to one of the four subgroups, use null and alternative hypothesis statements and correct statistical verbage when referencing p-values in conclusions.
 
-## Males
+$H_0$ : The covid vaccine  is not  effective in treating covid among the 4 subgroups.
 
 
+$H_A$ : The covid vaccine is effective in treating covid among the 4 subgroups.
+
+Data for this study came from a FinalData file , provided by our professor.
+
+## Methods 
+
+
+The statistical analysis well be using is cat~ cat because the covid vaccine should be effective among subgroups.
+
+The method we will use to display the data is a bar chart,cross tabel , and chi squared test 
+
+
+
+## Results
+```{r}
+maleData = filter (FinalData,sex == "M")
+```
+
+## Graphical Results 
+```{r}
+barchartGC(~infected+treatment,data=maleData)
+barchartGC(~infected+treatment,data=maleData, type="percent")
+
+```
+
+
+The graph shows among those who have covid vaccine, the people who did get the vaccine there was a difference.Mean while among the people who were "ok" that took the vaccine , there was no significant difference.
+
+## Numerical Graphical Results 
+
+```{r}
+table1 <- xtabs(~infected + treatment , data=maleData)
+rowPerc(table1)
+colPerc(table1)
+```
+Amoung the people who took the vaccine they have Covid there were a 2x difference. The people that took the placebo with 70% chance of not being infected and 30% less likely for the people who took the vaccine.Amoung the people that were okay and took the vaccine there was no significant difference.
+
+
+## Inferental Results 
+
+```{r}
+chisq.test(table1)
+chisqtestGC(table1)
+fisher.test(table1)
+```
+The chi square value is .000000000000004631 is too small, so the vaccine is effective in preventing spread of vaccine among drug users
+Based on the fisher exact vaccine you are0.35 less likey to get aids.
+We reject the null hypothesis.If you take the placebo you are 3xs more likey yo have aids
+
+
+```{r}
+femaleData = filter (FinalData,sex == "F")
+```
+ 
 ## Females
 
 
+## Graphical Results 
+```{r}
+barchartGC(~infected+treatment,data=femaleData)
+barchartGC(~infected+treatment,data=femaleData, type="percent")
+
+```
+
+## Numerical Graphical Results 
+
+```{r}
+table2 <- xtabs(~infected + treatment , data=femaleData)
+rowPerc(table2)
+colPerc(table2)
+```
+## Inferental Results
+
+```{r}
+chisq.test(table2)
+chisqtestGC(table2)
+fisher.test(table2)
+```
+
+
 ## LGBTQ
+```{r}
+LGBTQData = filter (FinalData,LGBTQ == "gay")
+```
 
+## Graphical Results 
 
+```{r}
+barchartGC(~infected+treatment,data=LGBTQData)
+barchartGC(~infected+treatment,data=LGBTQData, type="percent")
+
+```
+
+## Numerical Graphical Results 
+```{r}
+table3 <- xtabs(~infected + treatment , data=LGBTQData)
+rowPerc(table3)
+colPerc(table3)
+```
+
+## Inferental Results
+
+```{r}
+chisq.test(table3)
+chisqtestGC(table3)
+fisher.test(table3)
+```
 
 ## Druggies
+```{r}
+DruggiesData = filter (FinalData, DrugUser == "yes")
+```
+## Graphical Results 
 
+```{r}
+barchartGC(~infected+treatment,data=DruggiesData)
+barchartGC(~infected+treatment,data=DruggiesData, type="percent")
+
+```
+## Numerical Graphical Results 
+
+```{r}
+table4 <- xtabs(~infected + treatment , data=DruggiesData)
+rowPerc(table4)
+colPerc(table4)
+```
+
+## Inferental Results
+
+```{r}
+chisq.test(table4)
+chisqtestGC(table4)
+fisher.test(table4)
+```
 
 # Overall Results and Conclusions
