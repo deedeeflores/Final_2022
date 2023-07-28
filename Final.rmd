@@ -52,8 +52,8 @@ barchartGC(~infected+treatment,data=maleData, type="percent")
 
 ```
 
+Based on the graph, it is showing us that the group of people who contracted COVID and the ones who received the vaccine had less symptoms than those that received the placebo, while the group that didn't contract COVID showed no difference between those who were vaccinated and unvaccinated. 
 
-The graph shows among those who have covid vaccine, the people who did get the vaccine there was a difference.Mean while among the people who were "ok" that took the vaccine , there was no significant difference.
 
 ## Numerical Graphical Results 
 
@@ -62,7 +62,7 @@ table1 <- xtabs(~infected + treatment , data=maleData)
 rowPerc(table1)
 colPerc(table1)
 ```
-Amoung the people who took the vaccine they have Covid there were a 2x difference. The people that took the placebo with 70% chance of not being infected and 30% less likely for the people who took the vaccine.Amoung the people that were okay and took the vaccine there was no significant difference.
+The table shows that the group with covid experience a 2x difference between the vaccinated and the un-vaccinated.The placebo group had a 70% infected rate compared to the vaccinated group which only had 30%.The Ok group had no significant difference between the un-vaccinated and vaccinated
 
 
 ## Inferental Results 
@@ -72,9 +72,11 @@ chisq.test(table1)
 chisqtestGC(table1)
 fisher.test(table1)
 ```
-The chi square value is .000000000000004631 is too small, so the vaccine is effective in preventing spread of vaccine among drug users
-Based on the fisher exact vaccine you are0.35 less likey to get aids.
-We reject the null hypothesis.If you take the placebo you are 3xs more likey yo have aids
+The p value is 4.631e-14  making it to small to be in significant therfore disproving the null hypothesis
+
+Based on Fishers exact value You become .35% more susceptible to contracting covid if you are unvaccinated 
+
+
 
 
 ```{r}
@@ -156,8 +158,6 @@ colPerc(table4)
 
 ## Inferental Results
 
-```{r}
-```
 
 
 ```{r}
