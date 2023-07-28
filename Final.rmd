@@ -93,6 +93,8 @@ barchartGC(~infected+treatment,data=femaleData, type="percent")
 
 ```
 
+
+
 ## Numerical Graphical Results 
 
 ```{r}
@@ -100,6 +102,11 @@ table2 <- xtabs(~infected + treatment , data=femaleData)
 rowPerc(table2)
 colPerc(table2)
 ```
+This table shows that within the all female group those who weren't vaccinated had a 60% infection rate while those who were vaccinated had a 40% infection rate.
+
+In the all female group that contracted covid those with the vaccine had .67% less symptoms compared to those who weren't vaccinated 
+
+
 ## Inferental Results
 
 ```{r}
@@ -148,6 +155,7 @@ barchartGC(~infected+treatment,data=DruggiesData)
 barchartGC(~infected+treatment,data=DruggiesData, type="percent")
 
 ```
+
 ## Numerical Graphical Results 
 
 ```{r}
@@ -165,5 +173,9 @@ chisq.test(table4)
 chisqtestGC(table4)
 fisher.test(table4)
 ```
+The Chi - squared value is p-value =0000000232 is too small,so the vaccine is not effective in preventing the spread of covid among other people.
+Based on the Fisher's Exact vaccine you are less likely to get covid 
+We will fail to reject the null hypothesis . The information provided shows that the vaccine does not prevent the spead of Covid.
+
 
 # Overall Results and Conclusions
