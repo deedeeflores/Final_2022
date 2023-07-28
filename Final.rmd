@@ -157,6 +157,10 @@ colPerc(table4)
 ## Inferental Results
 
 ```{r}
+```
+
+
+```{r}
 chisq.test(table4)
 chisqtestGC(table4)
 fisher.test(table4)
